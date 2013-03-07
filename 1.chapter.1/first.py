@@ -5,9 +5,14 @@ import survey
 table = survey.Pregnancies()
 table.ReadRecords()
 
-outcome = 0
-for i in table.records:
-    if i.outcome == 1:
-        outcome += i.outcome
+first = 0
+other = 0
 
-print u' 生児出生数：', outcome
+for i in table.records:
+    if i.birthord == 1:
+        first += 1
+    elif i.birthord <= 10:
+        other += 1
+
+print u' 第一子：', first
+print u' 第二子以降：', other
